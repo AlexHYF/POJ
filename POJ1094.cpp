@@ -13,6 +13,7 @@ int main () {
     int n,m;
     while(cin >> n >>m && m + n !=0){
     for (int i = 1; i <= n;i++) 
+        for (int j = 1; j<=n ;j++)
             MAP[i][j] = false;
     int count = 0;
     bool flag = 1;
@@ -52,7 +53,6 @@ int main () {
                 ans[i].f = ctn;
             }
             sort(ans,ans+n,cmp);
-            
             cout <<"Sorted sequence determined after " << i << " relations: ";
             for (int i = 0; i<n ;i++)
                 cout << ans[i].l;
