@@ -8,7 +8,7 @@ struct letter {
 bool cmp (letter &a, letter &b) {
     return a.f<b.f;
 }
-bool MAP[27][27];
+bool MAP[26][26];
 int main () {
     int n,m;
     while(cin >> n >>m && m + n !=0){
@@ -20,8 +20,8 @@ int main () {
     for (int i = 1; i <= m;i++) {
         char t[4];
         cin >> t;
-        int x = t[0] - 'A' + 1;
-        int y = t[2] - 'A' + 1;
+        int x = t[0] - 'A' ;
+        int y = t[2] - 'A' ;
         if (MAP[x][y]&&flag) {
             cout << "Inconsistency found after "<< i << " relations.\n";
             flag = 0;
@@ -30,7 +30,7 @@ int main () {
             continue;
         MAP[y][x] = true;
         count++;
-        for (int i = 1; i<=n ;i++) {
+        for (int i = 0; i<n ;i++) {
             if (MAP[x][i]&&!MAP[y][i]) {
                 MAP[y][i] = true;
                 count++;
@@ -45,8 +45,8 @@ int main () {
             letter ans[27];
             for (int i = 0; i<n;i++) {
                 int ctn = 0;
-                for (int j = 1; j <= n;j++) {
-                    if (MAP[i+1][j])
+                for (int j = 0; j < n;j++) {
+                    if (MAP[i][j])
                         ctn++;
                 }
                 ans[i].l = i+'A';
